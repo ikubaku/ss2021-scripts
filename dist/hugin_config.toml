@@ -1,0 +1,9 @@
+munin_database_root = "/mnt/work/database"
+clone_detector_kind = "CCFinderSW"
+number_of_jobs = 8
+
+[clone_detector_config]
+executable_path = "/opt/workdir/CCFinderSW-1.0/bin/CCFinderSW"
+token_length = "50"
+language = "CPlusPlus"
+extensions = "pde,ino,c,h,cpp,hpp,cxx,hxx,cc"
