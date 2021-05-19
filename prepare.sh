@@ -37,5 +37,5 @@ popd
 
 # Extract the database for replication
 pushd ./work
-tar xf ./dist/database.tar.xz
+tar xf ../dist/database.tar.xz
 popd
