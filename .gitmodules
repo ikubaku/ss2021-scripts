@@ -1,0 +1,6 @@
+[submodule "src/Munin"]
+	path = src/Munin
+	url = https://github.com/ikubaku/Munin
+[submodule "src/Hugin"]
+	path = src/Hugin
+	url = https://github.com/ikubaku/Hugin.git
