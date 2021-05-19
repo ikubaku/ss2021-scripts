@@ -3,15 +3,6 @@
 # Initialize submodules
 git submodule update --init
 
-# Build Hugin
-pushd ./src/Hugin
-cargo build --release
-popd
-
-# Copy the binary for the image creation
-mkdir -p ./dist/build
-cp ./src/Hugin/target/release/hugin ./dist/build/
-
 # Download CCFinderSW
 curl -o /tmp/CCFinderSW-1.0.zip "https://raw.githubusercontent.com/YuichiSemura/CCFinderSW/master/build/distributions/CCFinderSW-1.0.zip"
 
