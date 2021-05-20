@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:devel
 MAINTAINER ikubaku <hide4d51@gmail.com>
 
 ENV DEBIAN_FRONTEND=noninteractive
