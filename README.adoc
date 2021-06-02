@@ -1,0 +1,56 @@
+= ss2021-scripts
+
+Scripts and data for the result replication.
+
+== Steps for replication
+=== 0. Prerequisites
+This script does not work on macOS because `readdir()` fails with the directories with many contents when running scripts on Docker for macOS.
+
+This script was tested on openSUSE Tumbleweed.
+
+It is recommended to run this script on the machine with at least 8 GiB of RAM. Otherwise the analysis will take a very long time.
+
+Install following softwares:
+
+* bash
+* unzip
+* tar
+* git
+* curl
+* docker
+
+=== 1. Perform necessary preparations
+----
+$ ./prepare.sh
+----
+
+=== 2. Download and restore the library database (Step 1 to 2)
+----
+$ ./run_database_restore.sh
+----
+
+=== 3a. Run analysis with narrowing the Example Sketches (Step 3 to 6)
+----
+$ ./detect_clones_narrowed.sh
+----
+
+=== 3b. Run analysis WITHOUT narrowing the Example Sketches (Step 4 to 6, skipping the step 3)
+This step will take several days depending on the machine performance!
+
+----
+$ ./detect_clones_not_narrowed.sh
+----
+
+=== 4. Inspect the results
+The output will be stored in the following directories if the analyses are successful:
+
+* `work/pairs_narrowed_latest`
+* `work/paris_not_narrowed_latest`
+
+Each directory contains `result` directories, which correspond to their own source code pairs.
+
+In each `result` directory contains a `result.txt` and `pair` directories.
+
+`result.txt` contains the source file names and library information.
+
+Each `pair` directory contains the extracted code clone and its information. `clone_e.txt` contains the code fragment in the Example Sketch, and `clone_p.txt` contains the code fragment in the target sketch.
